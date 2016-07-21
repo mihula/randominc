@@ -1,0 +1,7 @@
+base   randominc
+author René Mihula
+email  rene.mihula@gmail.com
+date   2016-07-21
+name   randominc plugin
+desc   Randomly select a page from a namespace and include it the current page
+url    http://dokuwiki.org/plugin:randominc

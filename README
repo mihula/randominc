@@ -1,15 +1,27 @@
-====== Include Plugin for DokuWiki ======
+randominc Plugin for DokuWiki
 
-All documentation for the Include Plugin is available online at:
+Randomly select a page from a namespace and include it the current page
 
-  * http://www.wikidesign.ch/en/plugin/include/start
-  * http://wiki.splitbrain.org/plugin:include
+All documentation for this plugin can be found at
+http://dokuwiki.org/plugin:randominc
 
-This plugin requires DokuWiki 2006-11-06 or later.
+If you install this plugin manually, make sure it is installed in
+lib/plugins/randominc/ - if the folder is called different it
+will not work!
 
-There's a Google Groups mailing list to discuss all issues:
-http://groups-beta.google.com/group/include-plugin/
+Please refer to http://www.dokuwiki.org/plugins for additional info
+on how to install plugins in DokuWiki.
 
-(c) 2005 - 2007 by Esther Brunner <wikidesign@gmail.com> and Christopher 
-Smith <chris@jalakai.co.uk>
-See COPYING for license info.
+----
+Copyright (C) René Mihula <rene.mihula@gmail.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; version 2 of the License
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+See the COPYING file in your DokuWiki folder for details
