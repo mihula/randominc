@@ -1,6 +1,6 @@
 <?php 
 /** 
- * Include Plugin: displays a wiki page within another 
+ * RandomInc Plugin: Randomly select a page from a namespace and include it the current page
  * Usage: 
  * {{randominc>namespace}} to random include a page from "namespace"
  * {{randomincsec>namespace}} see Include plugin
@@ -8,9 +8,10 @@
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html) 
  * @author     Esther Brunner <wikidesign@gmail.com>
  * @author     Christopher Smith <chris@jalakai.co.uk>
- */ 
+ * @author     Rene Mihula <rene.mihula@gmail.com>
+ */
  
-if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/'); 
+if(!defined('DOKU_INC')) die();
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/'); 
 require_once(DOKU_PLUGIN.'syntax.php'); 
   
@@ -22,12 +23,12 @@ class syntax_plugin_randominc extends DokuWiki_Syntax_Plugin {
  
   function getInfo(){ 
     return array( 
-      'author' => 'Vittorio Rigamonti',
-      'email'  => 'rigazilla at gmail dot com',
-      'date'   => '2007-12-20',
+      'author' => 'Vittorio Rigamonti, René Mihula',
+      'email'  => 'rigazilla@gmail.com, rene.mihula@gmail.com',
+      'date'   => '2016-07-21',
       'name'   => 'Random Include Plugin (helper class)',
       'desc'   => 'Functions to randomically include another page in a wiki page',
-      'url'    => '',
+      'url'    => 'http://www.dokuwiki.org/plugins:randominc',
     ); 
   } 
   
@@ -50,7 +51,7 @@ class syntax_plugin_randominc extends DokuWiki_Syntax_Plugin {
     return array($include, $id, cleanID($section), explode('&', $flags)); 
   }
 
-  function _randompage($ns) {
+function _randompage($ns) {
   require_once(DOKU_INC.'inc/search.php');
   global $conf;
   global $ID;
@@ -74,9 +75,16 @@ class syntax_plugin_randominc extends DokuWiki_Syntax_Plugin {
   $data = array();
   search($data,$dir,'search_allpages',array('ns' => $ns));
  
-  $page = $data[array_rand($data, 1)][id];
-  return $page;
- 
+  if (empty($data))
+  {
+    $page = '';
+  }
+  else
+  {
+    $page = $data[array_rand($data, 1)][id];
+  }
+  
+  return $page; 
 }
  
 //Function from Php manual to get  a random number in a Array
@@ -175,4 +183,4 @@ class syntax_plugin_randominc extends DokuWiki_Syntax_Plugin {
           
 }
 
-//Setup VIM: ex: et ts=4 enc=utf-8 :
+//Setup VIM: ex: et ts=4 enc=utf-8 : 
